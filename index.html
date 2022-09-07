@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Model Image</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="imgWrapper" class="img-wrap">
+      <img
+        id="myImg1"
+        class="model-img"
+        onclick="getIndex(1)"
+        src="https://cdn.pixabay.com/photo/2022/08/28/08/49/beach-7416035_960_720.jpg"
+        alt="First Image"
+      />
+      <img
+        id="myImg2"
+        class="model-img"
+        onclick="getIndex(2)"
+        src="https://cdn.pixabay.com/photo/2014/12/16/22/25/woman-570883_960_720.jpg"
+        alt="Second Image"
+      />
+      <img
+        id="myImg3"
+        onclick="getIndex(3)"
+        class="model-img"
+        src="https://cdn.pixabay.com/photo/2013/10/02/23/03/mountains-190055_960_720.jpg"
+        alt="Second Image"
+      />
+    </div>
+
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+      <span class="close">&times;</span>
+      <img class="modal-content" id="img01" />
+      <div id="caption"></div>
+    </div>
+    <script>
+      function getIndex(id) {
+        // Get the modal
+        var modal = document.getElementById("myModal");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        var img = document.getElementById("myImg" + id);
+
+        var modalImg = document.getElementById("img01");
+        var captionText = document.getElementById("caption");
+        modal.style.display = "block";
+        modalImg.src = img.src;
+        captionText.innerHTML = img.alt;
+
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("close")[0];
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+      }
+    </script>
+  </body>
+</html>
